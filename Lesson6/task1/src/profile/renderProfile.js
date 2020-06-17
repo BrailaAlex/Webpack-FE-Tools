@@ -1,6 +1,6 @@
 // file path: src/profile/renderProfile.js
 
-import './profile.css';
+import './profile.scss';
 
 export default ({ name, location }) => {
     const nameElem = document.querySelector('.profile__name');

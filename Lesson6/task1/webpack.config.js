@@ -5,12 +5,19 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /.css$/,
-                use: ['style-loader', 'css-loader'] //loaders acting from right to the left
+                test: /.s?css$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'] //loaders acting from right to the left
             }, //that`s why we naming them from right to the left
             {
-                test: /.(jpg|png)$/,
-                use: ['url-loader']
+                test: /\.(png|jpg|gif)$/i,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8192,
+                        name: '[name].[ext]',
+                        outputPath: 'images',
+                    },
+                }, ],
             }
         ],
     }
